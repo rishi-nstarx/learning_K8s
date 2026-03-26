@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongodb-colordb-creds
+  labels:
+      app: mongodb
+type: Opaque
+data:
+  username: Y29sb3JkYl91c2Vy # colordb_user
+  password: Y29sb3JkYl9wYXNzd29yZA== # colordb_password
+
+# In real practice we never commit this secret files in the repository as it has secrets.
+# We use kubectl cli or secret keeping tools for making secrets.

@@ -1,0 +1,37 @@
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: alice
+spec:
+  request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1pUQ0NBVTBDQVFBd0lERU9NQXdHQTFVRUF3d0ZZV3hwWTJVeERqQU1CZ05WQkFvTUJXRmtiV2x1TUlJQgpJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBeVVReEtPd2tzbG45TURWTXNKNm5VcXI3CmdGbGYyVVVWS1lISzVxbW5aSWZONU92ckRRZVhBc2t2ektyTWRwanRESWhpSGNmMjYrdVZscVdlYnZUOElFMWYKTDBMaW1ISUlSTkZoeFJiUkY2cjQ1Y2pJWTdmYUxNRGVrczBucks3VXZDaUM0UktWMUNpa2NzYTB5WUJRa2ZmagpkSjNXdjViRVQ5WmM5V1JlNmZFcElxbU5WTVZZY3J2T2Zlb3RPZGdqckxCS0xScU0yNUdsTUY5SldaYnVUOEVXCk5tejUzQytnWVprMjZPN2JaUG1DbDhIMW5HdUNUd2V1YUhYazMyZmk2dlJtdTkxbkcvWVhCNW1BZzdNVUNpa0kKNjVkTDJ0VU5QRHZ0NFBWZW0zS0ZsZVUzM0UzazBSMG9qWlpZQmZCdGNhWjhuekc0c0IyUTVFVWYxcjlvZHdJRApBUUFCb0FBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFHV3lzZU9nb2Y4NHk2UVdOTUwyb3crNDZveGFhOExFCmJBOXd1aUIyc3A3MW9pQUZUd0N1MVBTZXZWNU9JSVloTEpBTnc4ZndvMWI5a2JPOW14R2M1SFlvcUgycklIdUgKOUNUWDJvaWU5UzdOelBGZlI0cEU1WU5NZWNDY0YyUkZCQytzZC9JSzBSMGFaN3JlVWc4VGNEeHlzK2V0N2FOQgoxMzZ2a2F0SHpqZUZNZE5JZzR0WVdyZXZZNGhJOEpteUdlMEZtSTlidHVCK0dacVRSRFdIUG1hRlhqRXBBU1BzCjV5M2NEcllTeVFoRGNDYjUvNXIrWjA2TDJESzE3d0ZzUWpSSUJ1dXVFNzNKL0JzTTdHUmV1Mmx1QnJYcmk1QTMKd1IvR29lV0trU1FITVIxUXhVTytqSTNlc1RRbW8rdThZZGw1Qk8xRkt6Mzl0MndONnB0WS9sQT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==
+  signerName: kubernetes.io/kube-apiserver-client
+  expirationSeconds: 86400
+  usages:
+    - client auth
+
+---
+
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: bob
+spec:
+  request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1lUQ0NBVWtDQVFBd0hERU1NQW9HQTFVRUF3d0RZbTlpTVF3d0NnWURWUVFLREFOa1pYWXdnZ0VpTUEwRwpDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRHFlUVI2RVJ1SDZnNWJaT3YzRnVUd2hMNnR4SzZQCnNzKzM1WnAvUmtNQ24wenQvU0E1eDdXZEM1bndiYTc1eEFNM1JCMWQ0RjJPbzFzMWs0UUtUVFo1YTB6eXBMVDQKNkRpc3QxeHRicS8zUWtYUGZTYmtTM2w2SklxaWhWY1FKNU9GQVdyeTJyNkhROWVxZ2FWa2lrZDErYWFUUDYxTQpqWjRROUdCKzZpUjNNZGRhVWZPaDZJeCtLSjUxcTE4NzRqcGovcHkxRm5Bd0l5RTJESGlzOUJrUFUzWnpjWVlPCmROUm9HMzNDdmgwb0YwNHA1dlBNZ296UytxSlRzZG1wY1ExSG13N3BJVFpaMm5Oa0dCSEM0bzNTR05JME5QRHcKaEkyWmxnTzdSYWF1U0dFTjhveWFhK2o0ZXQ2NXhUZDBEV3NDT2w0cGhnai9iNHJNUGkvV3hybmxBZ01CQUFHZwpBREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBbld6bFh6R3pzTFZsV0NINUJ4NUFXVFRnUmtCb08xdWN2MEJVCkt5ZmZ1QUsxUXJoSHBaNEpRTXpiOHRPV05HM0pFMnNwOXhPY3dtS1gzdkM0N2hIZzVRWDRqbm5kUzk2N1pvNkgKNHVCZ1NtZTlGWjFXTnlVRWpZVkhxeXRycm9zK1h2aSs3NUNFYWt3bGdKT0N0WmRzdEFiM3doUUNJNGI0d0pzeApaS1AyUW5tSy9ZcWQ3MFN4SkZiYWVtUElqMUxmTE1BNVlIUGtoUEhVeENhRHR6TXZ4ektlQ2FoWFcrNVBabnd1CmpxUlg3d3ZjWGE0TTVWUHJ2WWFueDRmWGMrRTFCV3o1UXNLS0J4aDVpaFoxeDBrTDFOejZNSXNCMUFyWkZXSUQKeklMeFlNVDRLdCtHT2szV204NUVYK3ZvbnRJR0tWOXFPSFdiK1dlZXlQelBETi8veGc9PQotLS0tLUVORCBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0K
+  signerName: kubernetes.io/kube-apiserver-client
+  expirationSeconds: 86400
+  usages:
+    - client auth
+
+
+# always delete old 'csr' resource(kubectl get csr )before approving (kubectl certificate approve <certificate_name>)
+# certificates, if you are creating new .key and .csr files to create new .crt files.
+
+# first we create key. (openssl genrsa -out alice.key 2048)
+# then we generate .csr certificates. (openssl req -new -key alice.key -out alice.csr -subj "/CN=alice/O=dev")
+# then we write .yaml files like this.
+# for generating base64 string from .csr files. so that we can set it as a 'request' in .yaml (cat alice.csr | base64 | tr -d "\n")
+# (kubectl apply -f .)
+# then approve certificates. (kubectl certificate approve alice bob)
+# kubectl get csr alice -o jsonpath='{.status.certificate}' | base64 -d > alice.crt (generating the .crt)
+# openssl x509 -noout -text -in 'alice.crt'
+# kubectl config set-credentials alice --client-key $(realpath alice.key) --client-certificate $(realpath alice.crt)

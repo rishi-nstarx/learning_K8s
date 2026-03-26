@@ -1,0 +1,2 @@
+minikube start -p netpol --cni calico (starting with new profile using 'calico' cni plugin)
+curl color-svc/api

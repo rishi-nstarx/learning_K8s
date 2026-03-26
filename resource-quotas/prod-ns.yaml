@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  namespace: prod
+  name: prod-quota
+spec:
+  hard:
+    requests.cpu: '2'
+    requests.memory: '2Gi'
+    limits.cpu: '4'
+    limits.memory: '4Gi'
+
+
+# the limits and requests here is the 'total' amount of the resources
+#  that all pods can use, it is not the allocation of resources for each pod.(refer slides for more details).

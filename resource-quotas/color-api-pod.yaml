@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: color-api
+  namespace: dev
+  labels:
+    app: color-api
+spec:
+  containers:
+    - name: color-api
+      image: lmacademy/color-api:1.1.0
+      resources:
+        requests:
+          cpu: '200m'
+          memory: '256Mi'
+        limits:
+          cpu: '500m'
+          memory: '512Mi'
+      ports:
+        - containerPort: 80
+
+
+# Here these limits and requests are specifically being set for this particular pod.
+# Alocation of resources for this pod.

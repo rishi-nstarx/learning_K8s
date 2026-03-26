@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: color-svc
+spec:
+  clusterIP: None
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: color-api
+
+
+# we explicitly define "clusterIP: None" in headless service to not get any clusterIP.
+# the agenda of using headless service is to get a stable DNS.

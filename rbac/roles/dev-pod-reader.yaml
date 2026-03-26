@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1 # be careful with the spelling of 'authorization'.
+kind: Role
+metadata:
+  namespace: dev
+  name: pod-reader
+rules:
+  - apiGroups: ['']
+    resources: ['pods'] # don't use 'pod'.
+    verbs: ['get', 'list']
+    
+# this verbs 'get' and 'list' is not as we do using kubectl here get = describe and list = get.(see for more.)
+#  whenever you change anything in role/rolebinding manifest files do "kubectl apply" for both the files/resources.

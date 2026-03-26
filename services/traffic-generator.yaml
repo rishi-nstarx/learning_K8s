@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: traffic-generator
+  labels:
+    app: traffic-generator
+spec:
+  containers:
+    - name: traffic-generator
+      image: lmacademy/traffic-generator:1.0.0
+      args:
+        - 'color-api-clusterip/api'
+        - '0.5'
+
+
+
+# This args is for 'lmacademy/traffic-generator:1.0.0' which has some scripts which require initial inputs.
+# All the code is in containers repo.
+
+
+# The main agenda of creating this pod was to communicate with other pods while statying inside the cluster.
+# In short for internal commincation.

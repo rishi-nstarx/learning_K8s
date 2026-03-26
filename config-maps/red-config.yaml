@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: red-config
+data:
+  DEFAULT_COLOR: red
+  STORY:  |
+    so this is nothing but it is
+    to demontrate that you can pass the value as MULTILINE values as well.
+
+  story.js:  | # this is nothing but the script.
+    console.log("so this is nothing but it is")
+    console.log("to demontrate that you can pass the value as MULTILINE values as well.")

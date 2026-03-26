@@ -1,0 +1,25 @@
+kubectl config set-credentials alice --client-key $(realpath bob.key) --client-certificate $(realpath bob.crt)
+
+kubectl config use-context <context-name/username>
+
+kubectl config set-context bob --cluster=minikube --user=bob --namespace=dev
+
+kubectl config unset contexts.<context-name>.namespace
+
+kubectl config current-context
+
+kubectl config set-context
+
+We do this to check while getting error related to key related error that whether the hashes are same or not.
+openssl x509 -noout -modulus -in bob.crt | openssl md5
+openssl rsa -noout -modulus -in bob.key | openssl md5
+
+
+
+
+kubectl config set-credentials bob \
+  --client-certificate=/home/rsoni/Desktop/learning_K8s/rbac/bob.crt \
+  --client-key=/home/rsoni/Desktop/learning_K8s/rbac/bob.key
+
+
+
